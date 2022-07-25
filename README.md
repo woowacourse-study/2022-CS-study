@@ -45,10 +45,29 @@
 - 10시 1분부터 지각으로 간주한다
 - 지각자는 벌금 3천원을 낸다
 
+## 질문 리스트
+
+### 언어/툴
+- [Java](Java/README.md)
+- [Spring](Spring/README.md)
+- [JPA](Jpa/README.md)
+
+### CS
+- [네트워크](Network/README.md)
+- [운영체제](OS/README.md)
+- [데이터베이스](DB/README.md)
+- [알고리즘](Algorithm/README.md)
+- [보안](Security/README.md)
+
+### 기타
+- [인프라](Infra/README.md)
+
 ## 🖤 깃허브 이용 방법
-1. 각 `디렉토리` 별 `readme.md`의 주제 목록 중 하나를 선정
-2. `main` 브랜치 클론 후, 디렉토리에 해당 주제 이름의 md 파일 생성(예: DB_트랜잭션.md)
-3. md 파일 작성 후 `main` 브랜치에 `PR`
+1. 브랜치 `fork`
+2. 각 `디렉토리` 별 `readme.md`의 주제 목록 중 하나를 선정
+3. `main` 브랜치 클론한 후, 닉네임으로 체크아웃 
+4. 디렉토리에 해당 주제 이름의 md 파일 생성(예: DB_트랜잭션.md)
+5. md 파일 작성 후 `main` 브랜치로 `PR`
     - 제목 형식 : `[헌치]DB 트랜잭션`
-4. 충돌이 없을 시 셀프 `merge`
-5. 디렉토리 속 `readme.md` 파일 속 해당 주제 체크박스를 체크
+6. 충돌이 없을 시 직접 `merge`
+7. 디렉토리 속 `README.md` 파일 속 해당 주제 체크박스를 체크

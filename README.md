@@ -71,3 +71,8 @@
     - 제목 형식 : `[헌치]DB 트랜잭션`
 6. 충돌이 없을 시 직접 `merge`
 7. 디렉토리 속 `README.md` 파일 속 해당 주제 체크박스를 체크
+
+
+## 참고자료
+[Backend-Interview-Question](https://github.com/ksundong/backend-interview-question)
+[Sir.LOIN 소프트웨어 엔지니어 인터뷰 질문 목록](https://github.com/sirloin-dev/meatplatform/blob/master/job-description/interview-questions.adoc)

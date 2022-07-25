@@ -8,4 +8,3 @@
 - [ ] Filter
 - [ ] @Transactional 내부 동작 원리
 - [ ] AOP/Spring AOP
-- [ ] 

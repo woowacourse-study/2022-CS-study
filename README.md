@@ -1,5 +1,10 @@
-# 2022-CS-study
+# 🔥CS 뽀개기🔥
 우아한테크코스 4기 면접대비 CS 스터디 (2022.07.25 ~ )
+
+# 인원
+|[![](https://github.com/BETTERFUTURE4.png?size=80)](https://github.com/BETTERFUTURE4)|[![](https://github.com/hyewoncc.png?size=80)](https://github.com/hyewoncc) |[![](https://github.com/Wishoon.png?size=80)](https://github.com/Wishoon) | [![](https://github.com/progress0407.png?size=80)](https://github.com/progress0407)|
+|:---:|:---:|:---:|:---:|
+| 헌치 | 써머 | 루키 | 필즈 |
 
 # 진행 일정
 - 시간 : 매주 토요일 10:00 ~ 12:00
@@ -42,7 +47,4 @@
 - 지각자는 벌금 3천원을 낸다
 
 # 깃허브 이용 방법
-
-# 인원
-헌치,써머,루키,필즈
 

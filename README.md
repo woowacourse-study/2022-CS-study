@@ -3,8 +3,8 @@
 
 # 진행 일정
 - 시간 : 매주 토요일 10:00 ~ 12:00
-- 장소 : 온라인 [SLiPP 게더](https://app.gather.town/app/rlgHKPj38GyqLB9z/SLiPP)
-- PR 마감 : ~ 토요일 9:30
+- 장소 : 온라인, [`SLiPP 게더`](https://app.gather.town/app/rlgHKPj38GyqLB9z/SLiPP)
+- PR 마감 : ~ 토요일 10:00(스터디 전 까지)
 
 # 진행 목표
 - CS 기본 지식들을 습득한다

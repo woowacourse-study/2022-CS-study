@@ -74,5 +74,5 @@
 
 
 ## 참고자료
-[Backend-Interview-Question](https://github.com/ksundong/backend-interview-question)
-[Sir.LOIN 소프트웨어 엔지니어 인터뷰 질문 목록](https://github.com/sirloin-dev/meatplatform/blob/master/job-description/interview-questions.adoc)
+- [Backend-Interview-Question](https://github.com/ksundong/backend-interview-question)
+- [Sir.LOIN 소프트웨어 엔지니어 인터뷰 질문 목록](https://github.com/sirloin-dev/meatplatform/blob/master/job-description/interview-questions.adoc)

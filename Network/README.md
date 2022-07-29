@@ -3,7 +3,7 @@
 ## 주제 목록
 
 - [ ] OSI 7계층 , TCP/IP 4계층
-- [ ] CORS
+- [X] CORS
 - [ ] RESTful
 - [ ] HTTP vs HTTPS
 - [ ] TCP/UDP

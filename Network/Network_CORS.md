@@ -1,11 +1,13 @@
 # 사전 개념
 
 ## 1. `Origin`(출처)
+![image](https://user-images.githubusercontent.com/50815519/181863561-08c7fa87-ce9f-4171-b872-c67653fdef89.png)
 
 - `URL`에서 확인 가능한 `프로토콜`, `호스트`, `포트` 가 같을 때 같은 출처!
     - [`localhost`](http://localhost) 와 `127.0.0.1`은 다른 호스트로 판단됨!(실제로는 같은 주소지만)
 
 ## 2. `SOP`(Same Origin Policy)
+![image](https://user-images.githubusercontent.com/50815519/181863608-62530ad7-d29d-4553-8d78-8fb5f28f1c53.png)
 
 ### 정의
 
@@ -54,6 +56,7 @@
         - `text/plain`
 
 ### 2) `Preflight Request`
+![image](https://user-images.githubusercontent.com/50815519/181863676-7f22f307-2c3d-4fd3-91a2-e96dad87f215.png)
 
 > 너네 집에 놀러가도 돼?
 >

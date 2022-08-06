@@ -132,8 +132,7 @@ public void method()throws Exception{
 `DataSourceUtils` 을 사용해 `Connection` 오브젝트를 가져온다. 즉, 아직 `Data 접근 기술`에 의존적이다.
 
 ## 2. 트랜잭션 추상화
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee7b626f-d027-4343-a3f0-d4e8ddd4e77e/Untitled.png)
+![image](https://user-images.githubusercontent.com/50815519/183227412-c4746c97-904a-4dfe-aedd-f244348952db.png)
 
 ### 2-1. 개념
 

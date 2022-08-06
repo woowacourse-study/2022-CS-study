@@ -19,11 +19,11 @@ public void removeBoard(Long id)throws Exception{
 > 이론적으로 데이터베이스 시스템은 각각의 트랜잭션에 대해 원자성(`Atomicity`), 일관성(`Consistency`), 독립성(`Isolation`), 영구성(`Durability`)을 보장한다. 이 성질을 첫글자를 따 [ACID](https://ko.wikipedia.org/wiki/ACID)라 부른다.
 >
 
-- [`원자성**(Atomicity)`](https://ko.wikipedia.org/wiki/%EC%9B%90%EC%9E%90%EC%84%B1_(%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EC%8B%9C%EC%8A%A4%ED%85%9C)) :
+- [`원자성(Atomicity)`](https://ko.wikipedia.org/wiki/%EC%9B%90%EC%9E%90%EC%84%B1_(%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EC%8B%9C%EC%8A%A4%ED%85%9C)) :
   트랜잭션과 관련된 작업들이 부분적으로 실행되다가 중단되지 않는 것을 보장하는 능력이다. 중간 단계까지 실행되고 실패하는 일이 없도록 하는 것이다.
-- `일관성**(Consistency)`: 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다.
+- `일관성(Consistency)`: 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다.
 - `독립성(Isolation)`: 트랜잭션을 수행 시 다른 트랜잭션의 연산 작업이 끼어들지 못하도록 보장하는 것을 의미한다. 이것은 트랜잭션 밖에 있는 어떤 연산도 중간 단계의 데이터를 볼 수 없음을 의미한다.
-- `지속성**(Durability)` : 성공적으로 수행된 트랜잭션은 영원히 반영되어야 함을 의미한다. 트랜잭션은 로그에 모든 것이 저장된 후에만 commit 상태로 간주될 수 있다.
+- `지속성(Durability)` : 성공적으로 수행된 트랜잭션은 영원히 반영되어야 함을 의미한다. 트랜잭션은 로그에 모든 것이 저장된 후에만 commit 상태로 간주될 수 있다.
 
 [ACID - 위키백과, 우리 모두의 백과사전](https://ko.wikipedia.org/wiki/ACID)
 
@@ -102,8 +102,8 @@ private DeataSource dataSource;
 
 // Connection을 생성할 때 사용할 DataSource를 DI 받는다
 public void setDataSource(DataSource dataSource){
-        this.dataSource=dataSource;
-        }
+    this.dataSource=dataSource;
+}
 
 public void method()throws Exception{
     // 1. 동기화 작업 초기화

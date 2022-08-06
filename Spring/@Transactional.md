@@ -51,15 +51,15 @@ public void removeBoard(Long id)throws Exception{
 
 ```java
 Connection connection=dataSource.getConnection()
-        try(connection){
+    try(connection){
         connection.setAutoCommit(false);
-        // 비즈니스 로직 수행
+    // 비즈니스 로직 수행
         connection.commit();
-        }catch(SQLException e){
+    }catch(SQLException e){
         connection.rollback();
-        }finally{
+    }finally{
         connection.close()
-        }
+}
 ```
 
 ## 1. 개념
@@ -106,25 +106,25 @@ public void setDataSource(DataSource dataSource){
         }
 
 public void method()throws Exception{
-        // 1. 동기화 작업 초기화
-        TransactionSynchronizationManager.initSynchronization();
-        // 2. DB 커넥션을 생성하고 트랜잭션을 시작
-        Connection c=DataSourceUtils.getConnection(dataSource);
-        c.setAuthCommit(false);
+    // 1. 동기화 작업 초기화
+    TransactionSynchronizationManager.initSynchronization();
+    // 2. DB 커넥션을 생성하고 트랜잭션을 시작
+    Connection c=DataSourceUtils.getConnection(dataSource);
+    c.setAuthCommit(false);
 
-        try{
+    try{
         // 3. 비즈니스 로직 수행
         c.commit();
-        }catch(Exception e){
+    }catch(Exception e){
         c.rollback();
         throw e;
-        }finally{
+    }finally{
         DataSourceUtils.releaseConnection(c,dataSource);
-        // 4. 동기화 작업 종료 및 정리
+    // 4. 동기화 작업 종료 및 정리
         TransactionSynchronizationManager.unbindResource(this.dataSource);
         TransactionSynchronizationManager.clearSynchronization();
-        }
-        }
+    }
+}
 ```
 
 ### 1-3. 문제점
@@ -150,18 +150,18 @@ public void method()throws Exception{
 
 ```java
 public void method()throws Exception{
-        // 1.사용할 DB(JDBC)의 DataSource를 생성자에 넣어 트랜잭션 추상 오브젝트 생성
-        PlatformTransactionManager transactionManager=new DataSourceTransactionManager(dataSource);
-        TransactionStatus status=transactionManager.getTransaction(new DefaultTransactionDefinition());  //트랜잭션 시작 
+    // 1.사용할 DB(JDBC)의 DataSource를 생성자에 넣어 트랜잭션 추상 오브젝트 생성
+    PlatformTransactionManager transactionManager=new DataSourceTransactionManager(dataSource);
+    TransactionStatus status=transactionManager.getTransaction(new DefaultTransactionDefinition());  //트랜잭션 시작 
 
-        try{
+    try{
         // 2. 비즈니스 로직 수행
         transactionManager.commit(status);
-        }catch(Exception e){
+    }catch(Exception e){
         transactionManager.rollback(status);
         throw e;
-        }
-        }
+    }
+}
 ```
 
 ### 2-3. `JDBC` 대신 `JPA`를 이용하는 법

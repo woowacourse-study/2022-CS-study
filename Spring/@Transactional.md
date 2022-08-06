@@ -53,7 +53,7 @@ public void removeBoard(Long id)throws Exception{
 Connection connection=dataSource.getConnection()
     try(connection){
         connection.setAutoCommit(false);
-    // 비즈니스 로직 수행
+        // 비즈니스 로직 수행
         connection.commit();
     }catch(SQLException e){
         connection.rollback();

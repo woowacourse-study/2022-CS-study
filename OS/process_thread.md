@@ -80,3 +80,11 @@
 - 따라서 상태값이 있으면 여러 요청에서 변경이 가능함  
 - 상태값이 없게 만들어야 스레드 세이프하게 처리된다  
 
+
+<br>
+
+### 참고한 곳들  
+
+- [[OS] 프로세스와 스레드의 차이](https://gmlwjd9405.github.io/2018/09/14/process-vs-thread.html)
+- [프로세스&쓰레드와 메모리(스택, 레지스터)](https://3dmpengines.tistory.com/2003)  
+- [스프링부트는 어떻게 다중 유저 요청을 처리할까? (Tomcat9.0 Thread Pool)](https://velog.io/@sihyung92/how-does-springboot-handle-multiple-requests)

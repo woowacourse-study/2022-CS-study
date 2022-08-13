@@ -11,3 +11,4 @@
 - [ ] SSL
 - [ ] HTTP(s) 프로토콜에서 바이너리 데이터를 전송하는 방식
 - [ ] Socket vs HTTP
+- [X] Proxy

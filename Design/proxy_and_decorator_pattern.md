@@ -48,7 +48,7 @@ operation - 객체 호출 (2)
 operation - 객체 호출 (3)
 ```
 
-![img_2.png](img_2.png)
+![img_2.png](proxy_and_decorator_pattern_image/img_2.png)
 
 
 여기서 만약에, 이 데이터가 변하지 않는 데이터라고 가정한다면, 어딘가에 보관을해두고 이미 조회한 데이터를 사용하는 것이 성능상 훨씬 좋다. 이를 `캐시`라고 한다.
@@ -58,7 +58,7 @@ operation - 객체 호출 (3)
 operation - 객체 호출 (1)
 ```
 
-![img_1.png](img_1.png)
+![img_1.png](proxy_and_decorator_pattern_image/img_1.png)
 
 간단한 코드를 통해 `Proxy` 패턴을 파악할 수 있다.
 
@@ -102,7 +102,7 @@ public class CasheProxy implements Subject {
 
 데코레이터를 보면 중복이 존재한다. 또한 꾸머주는 역할을 하기 때문에 `Decorator`는 스스로 존재할 수 없다. 따라서 내부 호출 대상인 `Component`를 가지고 있어야 한다. 그리고 해당 `Component`를 무조건 호출해야 한다.
 
-![img_3.png](img_3.png)
+![img_3.png](proxy_and_decorator_pattern_image/img_3.png)
 
 간단한 코드를 통해 데코레이터 패턴을 파악할 수 있다.
 

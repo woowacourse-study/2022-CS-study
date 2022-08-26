@@ -10,6 +10,7 @@
 > 자바 서블릿(Java Servlet)은 **자바를 사용하여 웹페이지를 동적으로 생성하는 서버측 프로그램 혹은 그 사양**을 말하며, 흔히 "서블릿"이라 불린다. 자바 서블릿은 웹 서버의 성능을 향상하기 위해 사용되는 자바 클래스의 일종이다.
 (…)
 > 자바 서블릿은[`자바 EE](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_EE) 사양의 일부분`으로, 주로 이 기능을 이용하여 쇼핑몰이나 온라인 뱅킹 등의 다양한 웹 시스템이 구현되고 있다.
+
 [https://ko.wikipedia.org/wiki/자바_서블릿](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EC%84%9C%EB%B8%94%EB%A6%BF#:~:text=%EC%9E%90%EB%B0%94%20%EC%84%9C%EB%B8%94%EB%A6%BF(Java%20Servlet)%EC%9D%80,%EC%9E%90%EB%B0%94%20%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98%20%EC%9D%BC%EC%A2%85%EC%9D%B4%EB%8B%A4)
 >
 

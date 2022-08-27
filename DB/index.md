@@ -25,7 +25,7 @@ Index의 사전적인 정의는 `색인` 입니다. 이를 좀 더 풀어서 얘
 
 만약 여기서 `Java`를 `Full Table Scan`으로 찾는다고 가정하면 다음과 같이 총 3개 페이지를 11번 검색하는 과정이 이루어질 것 입니다.
 
-![[Pasted image 20220827091746.png]]
+<img width="757" alt="Pasted image 20220827091746" src="https://user-images.githubusercontent.com/48710213/187007906-e5d80d36-9824-4848-a5b0-291b85810964.png">
 
 
 하지만 여기서 Java와 관련된 컬럼과 ID를 가져와서 인덱스를 만들면, Java 책이 처음으로 등장하는 시점에서 마지막 시점까지만 탐색을 수행하면 된다.
@@ -66,14 +66,7 @@ B-Tree 를 설명하기 전에 이를 구성하는 핵심 요소인 `Binary Sear
 
 `B-Tree`를 표현하면 다음과 같습니다.
 
-![[Pasted image 20220826103124.png]]
-
-**루트 페이지**와 **브랜치 페이지**에는 각 자식 페이지의 정보들을 **리프 페이지**에는 실제 데이터의 페이지가 저장되는 방식으로 `B-Tree`가 구성됩니다. 여기서 리프 페이지는 **클러스터링 인덱스**와 **논-클러스터링 인덱스**로 구분이 되는데 둘의 차이점은 **실제 데이터 페이지 정보**인지, **실제 데이터의 주소 페이지 정보**인지의 차이가 있습니다.
-
-
-
-
-![[Pasted image 20220826103124.png]]
+<img width="1000" alt="Pasted image 20220826103124" src="https://user-images.githubusercontent.com/48710213/187007991-b6f7dd92-32b2-4625-96d5-4b3e5c2957f8.png">
 
 **루트 페이지**와 **브랜치 페이지**에는 각 자식 페이지의 정보들을 **리프 페이지**에는 실제 데이터의 페이지가 저장되는 방식으로 `B-Tree`가 구성됩니다. 여기서 리프 페이지는 **클러스터링 인덱스**와 **논-클러스터링 인덱스**로 구분이 되는데 둘의 차이점은 **실제 데이터 페이지 정보**인지, **실제 데이터의 주소 페이지 정보**인지의 차이가 있습니다.
 
@@ -110,7 +103,9 @@ INSERT INTO member VALUES(1, '써머');
 INSERT INTO member VALUES(2, '헌치');
 ```
 
-![[Pasted image 20220827093455.png]]
+<img width="240" alt="Pasted image 20220827093455" src="https://user-images.githubusercontent.com/48710213/187008013-949f067d-c9e0-4ce5-8eee-d85f423bc25e.png">
+
+
 
 여기에 한번 **클러스터링 인덱스**를 적용해보겠습니다.
 
@@ -124,11 +119,13 @@ ALTER TABLE mebmer ADD CONSTRAINT nuq_id UNIQUE (id);
 
 위의 코드 처럼 id 값에 클러스터링 인덱스를 적용한 후, 테이블을 보면 다음과 같이 정렬된 것을 확인할 수 있습니다.
 
-![[Pasted image 20220827093405.png]]
+
+<img width="242" alt="Pasted image 20220827093405" src="https://user-images.githubusercontent.com/48710213/187008035-4b038eb7-af67-4e16-a689-bd58ed48a72a.png">
 
 또한, `B-Tree`에서 보았듯이 루트 페이지와 리프 페이지가 생기는 것도 확인할 수 있습니다.
 
-![[Pasted image 20220826111310.png]]
+<img width="500" alt="Pasted image 20220826111310" src="https://user-images.githubusercontent.com/48710213/187008091-93410cca-366e-49ab-b84a-d7a637100835.png">
+
 
 이때까지의 내용을 바탕으로 **클러스터링 인덱스**의 특징을 정리하면 다음과 같습니다.
 
@@ -142,7 +139,9 @@ ALTER TABLE mebmer ADD CONSTRAINT nuq_id UNIQUE (id);
 ### 논-클러스터링 인덱스
 
 기존과 동일하게 다음 테이블이 있다고 가정하겠습니다.
-![[Pasted image 20220827093455.png]]
+
+<img width="240" alt="Pasted image 20220827093455" src="https://user-images.githubusercontent.com/48710213/187008097-6864106b-85c4-4f14-8193-1d276d9a7108.png">
+
 
 여기서 동일하게 논-클러스터링 인덱스를 사용해보겠습니다. 논-클러스터링 인덱스를 적용하는 방식은 Unique 제약 조건을 걸거나 Index를 직접 생성하는 것 입니다.
 
@@ -153,7 +152,8 @@ ALTER TABLE member ADD CONSTRAINT unq_name UNIQUE (name);
 CREATE INDEX idx_name ON member (name);
 ```
 
-![[Pasted image 20220826113557.png]]
+
+
 
 위의 그림을 통해서 **실제 데이터 페이지는 변하지 않고** **리프 페이지, 즉 별도의 인덱스 페이지를 생성**해서 인덱스를 수행하는 것을 확인할 수 있습니다.
 

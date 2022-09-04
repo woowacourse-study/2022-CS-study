@@ -2,9 +2,9 @@
 
 ## 주제 목록
 
-- [ ] Dispatcher Servlet
+- [x] Dispatcher Servlet
 - [ ] Application 구동 방식
 - [ ] Spring DI/IoC
 - [ ] Filter
 - [x] @Transactional 내부 동작 원리
-- [ ] AOP/Spring AOP
+- [x] AOP/Spring AOP

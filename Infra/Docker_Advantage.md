@@ -43,11 +43,13 @@ In 2013, Docker introduced what would become the industry standard for container
 
 - 이해를 돕기 위해 각기 다른 이미지를 가져와 보았다!
 
-```
-A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+```plain
+A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. 
+A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
 
 ## 구글 번역
-컨테이너는 애플리케이션이 한 컴퓨팅 환경에서 다른 컴퓨팅 환경으로 빠르고 안정적으로 실행될 수 있도록 코드와 모든 종속성을 패키징하는 소프트웨어의 표준 단위입니다. Docker 컨테이너 이미지는 코드, 런타임, 시스템 도구, 시스템 라이브러리 및 설정과 같이 애플리케이션을 실행하는 데 필요한 모든 것을 포함하는 가벼운 독립 실행형 실행 소프트웨어 패키지입니다.
+컨테이너는 애플리케이션이 한 컴퓨팅 환경에서 다른 컴퓨팅 환경으로 빠르고 안정적으로 실행될 수 있도록 코드와 모든 종속성을 패키징하는 소프트웨어의 표준 단위입니다. 
+Docker 컨테이너 이미지는 코드, 런타임, 시스템 도구, 시스템 라이브러리 및 설정과 같이 애플리케이션을 실행하는 데 필요한 모든 것을 포함하는 가벼운 독립 실행형 실행 소프트웨어 패키지입니다.
 ```
 
 - 의역
@@ -58,7 +60,9 @@ A container is a standard unit of software that packages up code and all its dep
 Container images become containers at runtime and in the case of Docker containers – images become containers when they run on Docker Engine. Available for both Linux and Windows-based applications, containerized software will always run the same, regardless of the infrastructure. Containers isolate software from its environment and ensure that it works uniformly despite differences for instance between development and staging.
 
 ## 구글 번역
-컨테이너 이미지는 런타임에 컨테이너가 되며 Docker 컨테이너의 경우 이미지가 Docker Engine에서 실행될 때 컨테이너가 됩니다. Linux 및 Windows 기반 애플리케이션 모두에서 사용할 수 있는 컨테이너화된 소프트웨어는 인프라에 관계없이 항상 동일하게 실행됩니다. 컨테이너는 소프트웨어를 환경에서 격리하고 예를 들어 개발과 스테이징 간의 차이에도 불구하고 균일하게 작동하도록 합니다.
+컨테이너 이미지는 런타임에 컨테이너가 되며 Docker 컨테이너의 경우 이미지가 Docker Engine에서 실행될 때 컨테이너가 됩니다. 
+Linux 및 Windows 기반 애플리케이션 모두에서 사용할 수 있는 컨테이너화된 소프트웨어는 인프라에 관계없이 항상 동일하게 실행됩니다. 
+컨테이너는 소프트웨어를 환경에서 격리하고 예를 들어 개발과 스테이징 간의 차이에도 불구하고 균일하게 작동하도록 합니다.
 ```
 
 - 의역
@@ -170,7 +174,7 @@ services:
 
 한성 노트북에서 가상화 지원 문제로, 도커 셋업시 윈도우가 부팅되지 않는 현상이 있었음
 원인을 알기까지 3일
-이 증상을 겪은 사람은 한성 제조사를 사용하고 있었던 
+이 증상을 겪은 사람은 한성 제조사를 사용하고 있었던 필즈, 짱구는 미션 진행중에 상당한 고통을 겪음...
 
 
 ### 윈도우 WSL2와의 호환

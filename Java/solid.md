@@ -279,7 +279,9 @@ public interface PasswordEncoder {
 
 그러므로 `UserService`가 변하지 않는 추상화에 의존하도록 설계하기 위해 `PasswordEncoder` 라는 인터페이스를 만들어 이에 의존하도록 변경하였습니다. 이로인해, `UserService`가 추상화된 `PasswordEncoder`에 의존하므로 비밀번호 암호화 정책이 변경되어도 다른 곳들로 변경이 전파되지 않으며 유연한 애플리케이션이 된다는 것을 확인할 수 있습니다.
 
-![[Pasted image 20220905011847.png]]
+
+<img width="647" alt="Pasted image 20220905011847" src="https://user-images.githubusercontent.com/48710213/188359773-76f12c40-7700-4e1a-9a9f-0b075a303404.png">
+
 
 이렇게 의존관계 역전 원칙을 살펴보면, 개방 폐쇄 원칙과 밀접한 관련이 있다는 것을 확인할 수 있습니다. 의존 역전 원칙이 위배되면 개방 폐쇄 원칙 역시 위배될 가능성이 매우 높습니다.
 

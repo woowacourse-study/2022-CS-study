@@ -1,4 +1,4 @@
-## 배경
+# JOIN의 개념과 MySQL에서의 알고리즘 살펴보기
 
 `JOIN`은 `SQL`을 사용하게 되면 반드시 활용하는 기능 중 하나입니다. 프로젝트를 하면서 `INNER JOIN`, `OUTER JOIN` 을 통해서 대부분 원하는 로직들을 구현할 수 있었습니다. 하지만 내부적으로는 `JOIN`이 어떻게 알고리즘 적으로 동작하는지 잘 모르고 사용을 해왔었습니다. 그래서 이번 시간에 `JOIN`의 개념 복습과 함께, `JOIN`이 어떤식으로 동작하는지 한번 살펴보고자 합니다.
 
@@ -7,6 +7,8 @@
 `JOIN`은 둘 이상의 테이블을 결합하여서 하나의 테이블처럼 사용하기 위함이라고 할 수 있습니다. A 테이블에서 FK를 지정하고 B 테이블에서 이와 관련된 PK를 통해 **일반적으로** `JOIN`을 사용할 수 있습니다.
 
 `JOIN`의 종류로 크게 `INNER JOIN`, `OUTER JOIN`, `CROSS JOIN` 3가지로 분류를 할 수 있습니다.
+
+![image](https://user-images.githubusercontent.com/48710213/189535651-a6a280ca-acfd-4cda-8020-b249a4a723ef.png)
 
 ## 조인(JOIN) 종류
 
@@ -111,6 +113,8 @@ SQL 쿼리를 작성해서 실행을 시키면, 해당 쿼리는 **옵티마이�
 
 그림으로 살펴보면 다음과 같습니다.
 
+![image](https://user-images.githubusercontent.com/48710213/189535712-08e02bad-f854-4050-b3d3-dc7310866c88.png)
+
 
 
 ```java
@@ -124,6 +128,7 @@ SQL 쿼리를 작성해서 실행을 시키면, 해당 쿼리는 **옵티마이�
 
 결론부터 말하자면, `**Driving Table`이 작고, `Driven Table`의 결합키(FK) 필드에 인덱스가 존재할 경우 성능을 향상시킬 수 있다**고 할 수 있습니다.
 
+![image](https://user-images.githubusercontent.com/48710213/189535751-7b1fcc36-c344-4d06-bfcf-98cd197373bb.png)
 
 이렇게 `Driven Table` 의 결합키에 인덱스가 존재하게 된다면, `Driving Table`에서 `Driven Table`을 스캔할 때 모든 행에 대해 스캔을 할 필요가 없기 때문에 실행시간을 단축시킬 수가 있습니다.
 

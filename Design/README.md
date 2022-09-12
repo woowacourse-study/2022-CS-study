@@ -4,7 +4,7 @@
 
 - [ ] 싱글턴 패턴
 - [ ] Mutable, Immutable
-- [ ] blackbox testing, whitebox testing
+- [x] blackbox testing, whitebox testing
 - [ ] 상속/조합
 - [ ] 코드 응집성
 - [ ] 전략 패턴

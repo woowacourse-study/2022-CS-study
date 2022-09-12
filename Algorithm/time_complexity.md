@@ -147,21 +147,15 @@ for(N) {
 }
 ```
 
-O(N^3) 이 아니다!
+**O(N^3) 이 아니다!**  
 50_000*N^2... 즉 O(N^2)
-
-> ex3
-
-```java
-
-```
 
 # 참고
 
 > 중간 바보도 배우는 알고리즘
 > https://www.youtube.com/watch?v=Chcl71vEkRg
 
-> 일목요연하게 정리가 잘 되어 있다
+> `Big-O` 계산법에 대해 일목요연하게 정리가 잘 되어 있다
 > https://joycestudios.tistory.com/63
 
 > 테코톡

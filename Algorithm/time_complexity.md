@@ -124,9 +124,20 @@ for (M) {
 }
 ```
 
-O(N+M) or O(max(N,M))
+`O(N+M)` or `O(max(N,M))`
 
 > ex2
+
+```java
+for(N) {
+    for (M) {
+    }
+}
+```
+
+`O(N*M)`
+
+> ex3
 
 ```java
 for(N) {
@@ -153,5 +164,11 @@ O(N^3) 이 아니다!
 > 일목요연하게 정리가 잘 되어 있다
 > https://joycestudios.tistory.com/63
 
-> https://www.youtube.com/watch?v=IEH3YA2Nn4Q&t=875s
+> 테코톡
+> https://www.youtube.com/watch?v=IEH3YA2Nn4Q  
+
+> 쉬운코드: 알고 설명
 > https://www.youtube.com/watch?v=tTFoClBZutw
+
+> P-NP
+> https://www.youtube.com/watch?v=QkSW24mUxN8

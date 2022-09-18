@@ -34,7 +34,6 @@
 
 다른 사람은 접근할 수 없다.
 
-서버 응답 헤더 중 `Authorization`이 포함되어 있을 시 `Private Cache`에 저장되지 않는다.
 
 ### Shared Cache
 
@@ -44,6 +43,13 @@
 
 1. `Proxy Cache`는 포워드 프록시에서 동작하는 캐시이다.
 2. `Managed Cache`는 AWS나 Cloudfront 등 CDN 서비스, 리버스 프록시에서 동작하는 캐시이다. 이런 캐시들은 관리자 패널이나 리버스 프록시 설정으로 관리 가능해 `Managed Cache`(관리되는 캐시)라고 불린다.
+
+> A shared cache must not use a cached response to a request with an Authorization header field (Section 4.2 of [RFC7235]) to satisfy any subsequent request unless a cache directive that allows such responses to be stored is present in the response.
+> [RFC7234](https://greenbytes.de/tech/webdav/rfc7234.html#caching.authenticated.responses)
+
+서버 응답 헤더 중 `Authorization`이 포함되어 있을 시 `Shared Cache`에 저장되지 않는다.
+
+
 
 ## `Cache-Control`
 

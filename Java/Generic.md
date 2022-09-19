@@ -248,24 +248,41 @@ public void push(Test<? super String> myArray) {
 ### 언바운드
 
 ```java
-public class Test<T> {
-    private T element;
+public class mainTest<T> {
+   private T element;
 
-    public Test(T element) {
-        this.element = element;
-    }
+   public mainTest(T element) {
+      this.element = element;
+   }
 
-    public T get() {
-        return element;
-    }
+   public T get() {
+      return element;
+   }
+
+   public void set(T element) {
+      this.element = element;
+   }
+
+   public <T> void printArray(T parameter) {
+      System.out.println("클래스 필드에 정의된 타입: " + element.getClass().getName());
+      System.out.println("메소드 필드에 정의된 타입: " + parameter.getClass().getName());
+   }
+
+   public static void main(String[] args) {
+      mainTest<Integer> mainTest = new mainTest<>(1);
+      mainTest.printArray("야호");
+   }
 }
+
+```
+```shell
 //->컴파일 후!👀
 
 coding@bagjiuui-MacBookAir main % javap -c Test
 
-Compiled from "Test.java"
-public class Test<T> {
-  public Test(T);
+Compiled from "mainTest.java"
+public class mainTest<T> {
+  public mainTest(T);
     Code:
        0: aload_0
        1: invokespecial #1                  // Method java/lang/Object."<init>":()V
@@ -279,7 +296,45 @@ public class Test<T> {
        0: aload_0
        1: getfield      #2                  // Field element:Ljava/lang/Object;
        4: areturn
-//...
+
+  public void set(T);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #2                  // Field element:Ljava/lang/Object;
+       5: return
+
+  public <T> void printArray(T);
+    Code:
+       0: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: aload_0
+       4: getfield      #2                  // Field element:Ljava/lang/Object;
+       7: invokevirtual #4                  // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      10: invokevirtual #5                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      13: invokedynamic #6,  0              // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      18: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      21: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      24: aload_1
+      25: invokevirtual #4                  // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      28: invokevirtual #5                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      31: invokedynamic #8,  0              // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      36: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      39: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #9                  // class mainTest
+       3: dup
+       4: iconst_1
+       5: invokestatic  #10                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       8: invokespecial #11                 // Method "<init>":(Ljava/lang/Object;)V
+      11: astore_1
+      12: aload_1
+      13: ldc           #12                 // String 야호
+      15: invokevirtual #13                 // Method printArray:(Ljava/lang/Object;)V
+      18: return
+}
+
 // 바이트 코드를 보면 Field element가 java/lang/Object로 설정되어있다.
 ```
 
@@ -287,17 +342,38 @@ public class Test<T> {
 
 ```java
 public class ExtendsTest<T extends Number> {
-    private T element;
+   private T element;
 
-    public ExtendsTest(T element) {
-        this.element = element;
-    }
+   public ExtendsTest(T element) {
+      this.element = element;
+   }
+
+   public T get() {
+      return element;
+   }
+
+   public void set(T element) {
+      this.element = element;
+   }
+
+   public <T extends CharSequence> void printArray(T parameter) {
+      System.out.println("클래스 필드에 정의된 타입: " + element.getClass().getName());
+      System.out.println("메소드 필드에 정의된 타입: " + parameter.getClass().getName());
+   }
+
+   public static void main(String[] args) {
+      ExtendsTest<Integer> test = new ExtendsTest<>(1);
+      test.printArray("야호");
+   }
 }
+
+```
+
+```shell
 //->컴파일 후!👀
 
 coding@bagjiuui-MacBookAir main % javap -c ExtendsTest
 
-Compiled from "ExtendsTest.java"
 public class ExtendsTest<T extends java.lang.Number> {
   public ExtendsTest(T);
     Code:
@@ -307,6 +383,52 @@ public class ExtendsTest<T extends java.lang.Number> {
        5: aload_1
        6: putfield      #2                  // Field element:Ljava/lang/Number;
        9: return
+
+  public T get();
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field element:Ljava/lang/Number;
+       4: areturn
+
+  public void set(T);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #2                  // Field element:Ljava/lang/Number;
+       5: return
+
+  public <T extends java.lang.CharSequence> void printArray(T);
+    Code:
+       0: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: aload_0
+       4: getfield      #2                  // Field element:Ljava/lang/Number;
+       7: invokevirtual #4                  // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      10: invokevirtual #5                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      13: invokedynamic #6,  0              // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      18: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      21: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      24: aload_1
+      25: invokevirtual #4                  // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      28: invokevirtual #5                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      31: invokedynamic #8,  0              // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      36: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      39: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #9                  // class ExtendsTest
+       3: dup
+       4: iconst_1
+       5: invokestatic  #10                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       8: invokespecial #11                 // Method "<init>":(Ljava/lang/Number;)V
+      11: astore_1
+      12: aload_1
+      13: ldc           #12                 // String 야호
+      15: invokevirtual #13                 // Method printArray:(Ljava/lang/CharSequence;)V
+      18: return
+}
+
+
 // 바이트 코드를 보면 Field element가 상한 제한인 java/lang/Number로 설정되어있다.
 ```
 

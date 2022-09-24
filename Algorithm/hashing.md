@@ -11,18 +11,18 @@ HashMap은 왜 `hashCode()`, `euqals()`  둘다 구현해야만 하는 걸까??
 ![image](https://user-images.githubusercontent.com/66164361/190897944-72422e40-42bf-41fb-b233-08a3071f0f87.png)
 
 - `key` -> `hash value`(고정 길이의 데이터)
-- 이 과정을 hashing
+  - 이 과정을 hashing이라 한다
 
 - `hash funciton`
-- A hash function is any function that can be used to map data of arbitrary size to fixed-size values.
-- 임의의 길이의 데이터를 고정 길이의 데이터로 바꾸어주는 함수
+  - A hash function is any function that can be used to map data of arbitrary size to fixed-size values.
+  - 임의의 길이의 데이터를 고정 길이의 데이터로 바꾸어주는 함수
 
 ![image](https://user-images.githubusercontent.com/66164361/190897960-06c9cb4b-7971-4270-950a-63cd785814d1.png)
 
 - 해시 연산의 결과가 저장되는 곳을 `버킷(bucket)` 또는 슬롯(slot)이라고 한다.
 - 데이터 개수가 N, 버킷의 사이즈가 M이라고 할 때, N/M 을 `load factor(α)`라고 한다.
   - 한 버킷에 평균 몇 개의 키가 매핑되는가를 나타내는 지표이다.
-  - 대게의 경우 α가 α > 1 이 되도록 한다.
+  - 대게의 경우 `α가 α > 1` 이 되도록 한다.
 
 ## 나눗셈법 - 해시함수
 
@@ -30,8 +30,9 @@ HashMap은 왜 `hashCode()`, `euqals()`  둘다 구현해야만 하는 걸까??
 - 어떤 값이든 테이블의 크기로 나누면 그 나머지는 절대 테이블의 크기(n)을 넘지 않는다.
 - 테이블 크기를 M이라 했을 때 0 ~ M-1의 숫자가 나온다.
 - 일반적으로 테이블 내 공간을 효율적으로 사용하기 위해서는 테이블 크기 M을 소수로 정하는게 좋다는 것으로 알려져 있음  
-특히 2의 제곱수와 거리가 먼 소수를 사용한 해시 함수가 좋은 성능을 낸다.  
-그래서 이펙티브 자바에서 String 해시 계산할 때 31을 냈었던 것인가...? (관례로 알고 있었다...)
+  특히 2의 제곱수와 거리가 먼 소수를 사용한 해시 함수가 좋은 성능을 낸다.  
+  그래서 이펙티브 자바에서 String 해시 계산할 때 31을 냈었던 것인가...? (관례로 알고 있었다...)  
+  - ~~스터디원들과 알아보니 부질없는 것 같다 ㅠㅠ~~
 
 ## 해시 만들기 - 자릿수 접기
 
@@ -80,20 +81,22 @@ HashMap은 왜 `hashCode()`, `euqals()`  둘다 구현해야만 하는 걸까??
 - 버킷에 데이터가 이미 있는 경우 링크드리스트 방식처럼 노드를 추가합니다 (`Chaining`)  
 - 유연하다는 장점을 가지고 있으나 메모리 문제가 있을 수 있다  
 
+---
+
 - 삽입
-- `O(1)`
-- 무조건 하나만 넣으면 되므로 O(1) 이다! 
+    - `O(1)`
+    - 무조건 하나만 넣으면 되므로 O(1) 이다! 
 
 - 탐색  
-- `O(1+α)`  
-- 실패하는 탐색(`unsuccessful search`)의 경우 (값이 있는 경우)  
+  - `O(1+α)`  
+  - 실패하는 탐색(`unsuccessful search`)의 경우 (값이 있는 경우)  
     - 처음에 버킷을 찾고(`1`), 그 다음에 리스트에서 데이터를 모두 찾는다(`α`), 고로 `1 + α` 이다
-- 성공하는 탐색(`successful search`)의 경우 (값이 없는 경우)
+  - 성공하는 탐색(`successful search`)의 경우 (값이 없는 경우)
     - 최악의 경우 `1 + α`  
 
 - 삭제
-- `O(1+α)`
-- 탐색과 본질적으로 같다. 우선 데이터가 있는지 탐색을 해야 하기 때문!
+  - `O(1+α)`
+  - 탐색과 본질적으로 같다. 우선 데이터가 있는지 탐색을 해야 하기 때문!
 
 ## Open Addressing
 

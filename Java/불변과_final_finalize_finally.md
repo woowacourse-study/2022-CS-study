@@ -102,4 +102,6 @@ if (doX) {
 
 ## 도움받은 곳들  
 
-- []
+- [Java의 정석](https://search.shopping.naver.com/book/catalog/32466681076?cat_id=50010920&frm=PBOKPRO&query=java%EC%9D%98+%EC%A0%95%EC%84%9D&NaPm=ct%3Dl8ijh07k%7Cci%3Da6f47a2dc48ab055e282606858cb412c186975a5%7Ctr%3Dboknx%7Csn%3D95694%7Chk%3Dd5926613781aa25a5ca4812425ae8a63ed34e932)  
+- [이펙티브 자바](https://search.shopping.naver.com/book/catalog/32436239326?query=%EC%9D%B4%ED%8E%99%ED%8B%B0%EB%B8%8C%20%EC%9E%90%EB%B0%94&NaPm=ct%3Dl8iji18w%7Cci%3D4ffcec3b0d7488a3d6724af5e017a45e16e9f8b9%7Ctr%3Dboksl%7Csn%3D95694%7Chk%3De8d247c19b5c22fadf52945598b1a6a0de17969f)  
+- [Baeldung - java final performance](https://www.baeldung.com/java-final-performance)  

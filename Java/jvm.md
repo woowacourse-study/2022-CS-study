@@ -57,23 +57,14 @@ WORA(Wirte Once, Run Any Where) - Sun Microsystems
 
 ## JVM Memory Feature
 
-```
-스택 영역: 스레드마다 런타임 스택을 만들고, 그 안에 메서드 호출을 스택 프레임(메서드 콜)이라 부르는 블럭으로 쌓는다. 스레드 종료하면 런타임 스택도 사라진다.
-
-네이티브 메서드 인터페이스(JNI)를 호출하여 메서드를 실행한다.
-
-네이티브 메서드 인터페이스의 구현체는 네이티브 메서드 라이브러리에 위치해있다.
-
-```
-
---- 
 - Method Area: 클래스에 있는 메타 정보가 있음. (클래스 이름, 부모 클래스 누군지, 메서드, 필드 정보 등)
-  - 쓰레드끼리 공유된다.
 - Heap: 동적으로 인스턴스를 생성한 객체 정보가 여기 있다.
-  - 쓰레드끼리 공유된다.
 - Java Stacks: 지역적으로 실행되는 정보들이 쌓인다, 로컬변수, 메서드 호출할 때 정보 등, 쓰레드마다 있는 스택이고 메서드 호출 정보를 쌓는다. 쓰레드를 종료하면 해당 스택도 사라진다. 
 - PC Registers: 쓰레드마다 실행할 때 당시의 `instruction`의 위치를 가리키는 값이 생성되는 곳.
-- Native Method Stacks: Native Method를 호출하는 코드를 실행되는 위한 스택
+- Native Method Stacks: `Native Method`를 호출하는 코드를 실행되는 위한 스택
+
+![image](https://user-images.githubusercontent.com/66164361/192259307-0f97db70-cdba-4428-bb77-314249632cbe.png)
+
 
 ### Native Method Stacks
 
@@ -83,6 +74,8 @@ An implementation of the Java Virtual Machine may use conventional stacks, collo
 
 Java 가상 머신의 구현은 네이티브 메소드를 지원하기 위해 구어체로 "C 스택"이라고 하는 기존 스택을 사용할 수 있습니다.  
 (Java 프로그래밍 언어 이외의 언어로 작성된 메소드).  
+
+
 
 Native method stacks may also be used by the implementation of an interpreter for the Java Virtual Machine's instruction set in a language such as C. 
 
@@ -95,6 +88,8 @@ Native Method Stacks 또한 JVM의 인터프리터 구현체를 사용할 수 �
 If that method is not native, the pc register contains the address of the Java Virtual Machine instruction currently being executed. 
 
 해당 메소드가 기본이 아닌 경우 pc 레지스터에는 현재 실행 중인 JVM(Java Virtual Machine) 명령의 주소가 포함됩니다.
+
+
 
 If the method currently being executed by the thread is native, the value of the Java Virtual Machine's pc register is undefined.
 
@@ -118,9 +113,9 @@ If the method currently being executed by the thread is native, the value of the
 - 각각의 클래스 파일을 찾아서 JVM 메모리에 올려주는 역할을 한다
 
 - 과정
-  - 로딩: 클래스를 읽어 옴
-  - 링크: 레퍼런스를 연결함
-  - 초기화: static 값들 초기화 및 변수에 할당
+  - `로딩`: 클래스를 읽어 옴
+  - `링크`: 레퍼런스를 연결함
+  - `초기화`: static 값들 초기화 및 변수에 할당
 
 - 클래스 로더의 가장 큰 특징은 클래스들을 한번에 로딩하지 않고, 런타임에 동적으로 JVM으로 로딩한다는 것이다.
 

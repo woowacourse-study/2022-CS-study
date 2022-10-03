@@ -107,7 +107,7 @@
 
 ### `Document Database`
 
-- `MongoDB`, `CouthDB` 등이 있다.
+- `MongoDB`, `CouchDB` 등이 있다.
 
 데이터가 `Key`와 `Document`의 형태로 저장된다.
 

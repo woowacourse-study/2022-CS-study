@@ -7,4 +7,4 @@
 - [x] SOLID
 - [x] 제네릭
 - [x] Java JVM 구조 및 실행방식
-- [ ] final Integer a = 1; a = 2; 했을때의 결과
+- [x] final Integer a = 1; a = 2; 했을때의 결과

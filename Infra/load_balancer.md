@@ -57,6 +57,10 @@
 - `Least Connection` (최소접속방식)  
   - 서버에 연결되어 있는 Connection 개수만 갖고 단순비교하여 가장 적은곳에 연결
   - 성능이 `RR`보다 안 좋다!
+  - Since it is non-deterministic, the least connections load balancer is difficult to troubleshoot.
+    - 비 결정적이기 때문에 장애시 원인 파악이 어려울 수 있음
+  - This algorithm for the least connections load balancing technique is complex and requires more processing.
+    - 기술적으로 좀 더 복잡하고 많은 처리를 요구함
 
 ![image](https://user-images.githubusercontent.com/66164361/193557850-e82029bf-2bd5-48c9-865b-7052761c651d.png)
 
@@ -66,3 +70,18 @@
   - ```With this configuration, every 5 new requests will be distributed across the application instances as the following: 3 requests will be directed to srv1, one request will go to srv2, and another one — to srv3.```
   - `3:1:1` 로 요청이 나뉜다 !
 
+### 로드밸런서가 죽는 다면...?
+
+- 로드밸런서가 죽는 경우 서비스가 아예 장애가 되는데...
+  - SPOF: Single Point of Failue
+    - 특정 포인트 에러시 전체 시스템이 다운이 되는 경우!
+  - Master -> Slave ^^
+  - 평상시 Replication (`Slave`)을 떠서 둔다 !
+    - 그리고 Master가 장애가 나면 Slave를 Master화한다 
+
+# 참고
+
+- https://www.youtube.com/watch?v=9_6COPOMZvI  
+- https://tecoble.techcourse.co.kr/post/2021-11-07-load-balancing/  
+- https://www.educative.io/answers/what-is-the-least-connections-load-balancing-technique  
+- https://www.youtube.com/watch?v=kYipnodgi2I&t=374s  

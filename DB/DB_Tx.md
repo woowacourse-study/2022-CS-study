@@ -74,34 +74,38 @@ write 세션이 read 세션을 블로킹하지 않고, read 세션이 write 세�
 출처 : 데이터넷(http://www.datanet.co.kr)
 ```
 
+### MVC에 의한 read-write 관계 표
+
 | . | read | write |
 |--------|----|----|
 | read |  O  | O |
 | write |  O  | X |
 
 
-
+# 예시로 알아보는 격리수준
 
 ![image](https://user-images.githubusercontent.com/66164361/196092387-fc9a3d8d-c47c-4498-9b2b-f5ffa22870d0.png)
 
 - MVCC는 커밋된 데이터만 읽는 것이 기준
   - 따라서 Read UnCommited 는 MVCC를 사용하지 않는다
-- Tx2가 50으로 쓰기만 하고 커밋하지 않은 데이터를 읽지 않고, 10이란 데이터를 읽는다
+- Tx2가 50으로 쓰기만 하고 Tx1 입장에서는 commit하지 않은 데이터를 읽지 않고, 10이란 데이터를 읽는다
 
 ![image](https://user-images.githubusercontent.com/66164361/196092623-48b7cf04-501b-4488-8ca5-a4c6939e08cc.png)
 
-- Tx2 가 데이터를 업데이트한 뒤에는 상황이 다르다
+### Tx2 가 데이터를 업데이트한 뒤에는 상황이 다르다
   - 이 경우 Tx1의 격리 레벨에 따라 다른 데이터를 읽는다
 
-- 1. Read Commited 인 경우
-  - Read 하는 시간을 기준으로 그 전에 Commit된 데이터를 읽는다
-  - 따라서 Tx2에서 커밋한 50이란 숫자를 읽어간다
-  - 정확히는 UnDo 영역의 백업된 레코드를 읽어온다
+# 1. Read Commited 인 경우
+
+- Read 하는 시간을 기준으로 그 전에 Commit된 데이터를 읽는다
+- 따라서 Tx2에서 커밋한 50이란 숫자를 읽어간다
+- 정확히는 UnDo 영역의 백업된 레코드를 읽어온다
 
   ![image](https://user-images.githubusercontent.com/66164361/196095074-fa1994ee-88f9-4555-856f-c3fe457259cc.png)
 
+### ★ 언두(Undo) 로그 ★
+
 ```
-★ 언두(Undo) 로그 ★
 언두 영역은 UPDATE 문장이나 DELETE와 같은 문장으로 데이터를 변경했을 때 변경되기 전의 데이터(이전 데이터)를 보관하는 곳입니다.
 
 언두의 데이터는 크게 두 가지 용도로 사용이 됩니다.
@@ -114,21 +118,22 @@ write 세션이 read 세션을 블로킹하지 않고, read 세션이 write 세�
 
 ```
 
-- 2. Repeatable Read인 경우
-  - Tx 시작 시간 기준으로 그 전에 commit 된 데이터를 읽는다
-  - 따라서 시작할 때 읽었던 10이란 값을 가져온다
-  - MySQL InnoDB에서 작동하는 개념은, 자기 자신의 Tx ID보다 크지 않은 값 중에서 가장 큰 커밋 값을 읽어간다.
+# 2. Repeatable Read인 경우
+
+- Tx 시작 시간 기준으로 그 전에 commit 된 데이터를 읽는다
+- 따라서 시작할 때 읽었던 10이란 값을 가져온다
+- MySQL InnoDB에서 작동하는 개념은, 자기 자신의 Tx ID보다 크지 않은 값 중에서 가장 큰 커밋 값을 읽어간다.
 
 ![image](https://user-images.githubusercontent.com/66164361/196093071-7dc00fda-f0ce-4218-98a1-1b449802ddd1.png)
 
-  - 정확히는 자신에게 부여된 Tx번호보다 낮은 번호 중에서 가장 최신의 Commit 을 읽어간다
+- 정확히는 자신에게 부여된 Tx번호보다 낮은 번호 중에서 가장 최신의 Commit 을 읽어간다
 
 ### (표준) Reaptable Read에서는 Phantom Read가 발생할 수 있다
 
 ![image](https://user-images.githubusercontent.com/66164361/196093608-12c786f5-7fb2-4061-8455-09021b9a8fed.png)
 
 - 본래는 위처럼 데이터가 삽입이 된 경우, 동일 조건에서 읽음에도 불구하고 데이터가 추가된 것 만큼 읽는 것을 발견할 수 있다
-- 그러나 MySQ InnoDB는  레코드 락과 갭락을 사용하기 때문에, 조건절에 해당하는 레코드에 락이 걸리게 되어 데이터가 삽입되는 경우를 막을 수 있다
+- 그러나 MySQ InnoDB는 레코드 락과 갭락을 사용하기 때문에, 조건절에 해당하는 레코드에 락이 걸리게 되어 데이터가 삽입되는 경우를 막을 수 있다
 
 ### (MySQL) Reaptable Read에서는 Lost Update가 발생할 수 있다
 
@@ -162,3 +167,21 @@ write 세션이 read 세션을 블로킹하지 않고, read 세션이 write 세�
   - 그러나 제약 사항이 많아져서 동시 처리 가능한 트랜잭션 수가 줄어들어 결국 DB의 전체 처리량(`throughput`)이 `하락`하게 된다
 - MySQL에서는 `MVCC로 동작`하기 보다는 `lock으로 동작`한다
 
+
+# 참고
+
+- 각 격리 수준에 대한 설명
+  - https://zzang9ha.tistory.com/m/381
+- 락에 대한 설명
+  - https://suhwan.dev/2019/06/09/transaction-isolation-level-and-lock/
+- repeatable read 실험
+  - https://jyeonth.tistory.com/m/32
+- 케이의 ACID
+  - https://kth990303.tistory.com/m/384
+- 쉬운 코드
+  - https://youtu.be/wiVvVanI3p4
+  - https://youtu.be/-kJ3fxqFmqA
+  - https://youtu.be/bLLarZTrebU
+- 최범균님
+  - https://www.youtube.com/watch?v=urpF7jwVNWs
+  - https://www.youtube.com/watch?v=poyjLx-LOEU

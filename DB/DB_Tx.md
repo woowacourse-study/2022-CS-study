@@ -74,12 +74,14 @@ write 세션이 read 세션을 블로킹하지 않고, read 세션이 write 세�
 출처 : 데이터넷(http://www.datanet.co.kr)
 ```
 
-### MVC에 의한 read-write 관계 표
+### MVCC에 의한 read-write 관계 표
 
 | . | read | write |
 |--------|----|----|
 | read |  O  | O |
 | write |  O  | X |
+
+
 
 
 # 예시로 알아보는 격리수준
@@ -185,3 +187,4 @@ write 세션이 read 세션을 블로킹하지 않고, read 세션이 write 세�
 - 최범균님
   - https://www.youtube.com/watch?v=urpF7jwVNWs
   - https://www.youtube.com/watch?v=poyjLx-LOEU
+  

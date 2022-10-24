@@ -5,4 +5,4 @@
 - [x] N + 1 문제
 - [x] 영속성 컨텍스트
 - [x] JPQL
-- [ ] 도메인 vs Entity
+- [x] 도메인 vs Entity
